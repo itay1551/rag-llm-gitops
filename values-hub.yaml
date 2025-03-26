@@ -43,12 +43,11 @@ clusterGroup:
       name: servicemeshoperator
       namespace: openshift-operators
       channel: stable
-    rhoai:
-      name: rhods-operator
-      namespace: redhat-ods-operator
-      channel: stable-2.16
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace
+    odh:
+      name: opendatahub-operator
+      namespace: openshift-operators
+      channel: fast
+      source: community-operators
   projects:
     - hub
     - rag-llm
@@ -139,11 +138,17 @@ clusterGroup:
       project: gpu-config
       path: charts/all/llm-monitoring-config
 
-    openshift-ai:
-      name: openshift-ai
-      namespace: redhat-ods-operator
+    # openshift-ai:
+    #   name: openshift-ai
+    #   namespace: opendatahub
+    #   project: openshift-ai
+    #   path: charts/all/rhods
+
+    odh:
+      name: odh
+      namespace: opendatahub
       project: openshift-ai
-      path: charts/all/rhods
+      path: charts/all/odh
 
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
